@@ -51,12 +51,10 @@ const persistDoc = (id, query) => new Promise((resolve, reject) => {
   db.get(id, (err, val) => {
     if (!err && val) {
       resolve(id);
-      console.log(id + ' already in DB.');
       return;
     }
     db.put(id, query, err => {
       if (!err) {
-        console.log('Wrote ' + id + ' to DB');
         resolve(id);
         return;
       }
